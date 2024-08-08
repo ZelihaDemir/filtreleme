@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deyimler Uygulaması</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <nav>
+        <a href="/">Anasayfa</a>
+        <a href="/iletisim">İletişim Formu</a>
+        <a href="https://www.izu.edu.tr/">İzü Web Sayfası</a>
+    </nav>
+</header>
+
+  
+  <main>
+ 
+    <form action="/filtrele" method="POST">
+    <label for="anahtarKelime">Arama:</label><br>
+    <input type="text" id="anahtarKelime" name="anahtarKelime" placeholder="Deyim adına göre arayın..." required><br><br>
+    <button type="submit">Filtrele</button>
+</form>
+    
+    <h1>Deyimler Listesi</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Deyim ID</th>
+                <th>Deyim Adı</th>
+                <th>Deyim Açıklaması</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% deyimler.forEach(deyim => { %>
+                <tr>
+                    <td><%= deyim.deyim_id %></td>
+                    <td><%= deyim.deyim_adi %></td>
+                    <td><%- deyim.deyim_aciklama %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+  </main>
+</body>
+</html>
+
